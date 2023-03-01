@@ -1,0 +1,49 @@
+$color-primary: red; 
+$color-tertiary: green;
+
+@mixin article {
+    color: blue;
+    border: 1px solid $color-tertiary;
+    font-size: 1rem;
+    padding: 15px;
+}
+
+@mixin article2 {
+    flex-grow: 1;
+    font-size: 24px;
+    border: 1px solid $color-tertiary;
+    margin-top: 10px;
+    color: $color-tertiary;
+}
+div {
+    border: 1px solid $color-primary;
+    text-align: center;
+    margin: 10px;
+    padding: 15px;
+}
+
+div .one {
+    display: flex;
+    flex-direction: row;
+}
+
+div > .one > article {
+    @include article();
+    
+}
+
+div > .two {
+    @include article2();
+}
+div > h1 {
+    color: $color-tertiary;
+    text-decoration: underline blue;
+    
+}
+div > .one > article:nth-child(odd) {
+    color: blue;
+}
+div > .one > article:nth-child(even) {
+    color: $color-primary;
+}
+
